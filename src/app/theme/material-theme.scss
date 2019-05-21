@@ -1,0 +1,40 @@
+@import '~@angular/material/theming';
+
+$theme: (
+    50: #eee5f8,
+    100: #d4beee,
+    200: #b793e2,
+    300: #9a68d6,
+    400: #8447ce,
+    500: #6e27c5,
+    600: #6623bf,
+    700: #5b1db8,
+    800: #5117b0,
+    900: #3f0ea3,
+    A100: #dfd2ff,
+    A200: #ba9fff,
+    A400: #966cff,
+    A700: #8452ff,
+    contrast: (
+        50: #000000,
+        100: #000000,
+        200: #000000,
+        300: #000000,
+        400: #ffffff,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff,
+        A100: #000000,
+        A200: #000000,
+        A400: #000000,
+        A700: #ffffff
+    )
+);
+
+$app-primary: mat-palette($theme);
+$app-accent: mat-palette($theme, A200, A100, A400);
+$app-warn: mat-palette($theme);
+$app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+@include angular-material-theme($app-theme);
