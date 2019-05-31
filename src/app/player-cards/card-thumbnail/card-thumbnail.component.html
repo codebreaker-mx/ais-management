@@ -1,0 +1,14 @@
+<mat-card class="player-card">
+    <mat-card-header>
+        <img mat-card-avatar src="{{ playerInfo.imgUrl }}" alt="{{ playerInfo.name }}" />
+        <mat-card-title>{{ playerInfo.name }}</mat-card-title>
+        <mat-card-subtitle>{{ playerInfo.nickName }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <p>{{ playerInfo.description }}</p>
+    </mat-card-content>
+    <mat-card-actions ngClass="text-right">
+        <button mat-raised-button>Editar</button>
+    </mat-card-actions>
+</mat-card>

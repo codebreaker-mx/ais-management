@@ -1,10 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './shared/guards/auth.guard';
 
-const routes: Routes = [];
+const routes: Routes = [
+    { path: '', pathMatch: 'full', redirectTo: 'player-cards' },
+    {
+        path: 'player-cards',
+        loadChildren: './player-cards/player-cards.module#PlayerCardsModule',
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'login',
+        component: LoginComponent
+    }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
