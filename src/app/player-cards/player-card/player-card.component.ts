@@ -10,7 +10,7 @@ import { PlayerCardsService } from '../player-cards.service';
 })
 export class PlayerCardComponent implements OnInit {
     @Input() playerInfo: IPlayerCard;
-    @Input() newPlayer = false;
+    @Input() newPlayer = true;
     @Output() save = new EventEmitter();
 
     playerCardFG = this.fb.group({
@@ -31,9 +31,19 @@ export class PlayerCardComponent implements OnInit {
     }
 
     savePlayerCard() {
+        // Update
+        if(!this.newPlayer && this.playerInfo) {
+            const playerUpdated = {
+                id: this.playerInfo.id,
+                ...this.playerCardFG.value
+            };
+            this.playerCardsService.updatePlayerCard(playerUpdated).then(() => this.save.emit(playerUpdated))
+              .catch(() => console.log('Promise Rejected'));
+        } else {
         this.playerCardsService
             .savePlayerCard(this.playerCardFG.value)
             .then((docRef) => this.save.emit(docRef))
             .catch(() => console.log('Promise Rejected'));
+        }
     }
 }

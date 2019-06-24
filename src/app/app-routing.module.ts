@@ -1,18 +1,32 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './shared/guards/auth.guard';
+import { IAppRoute } from './app-route';
 
-const routes: Routes = [
+export const routes: IAppRoute[] = [
     { path: '', pathMatch: 'full', redirectTo: 'player-cards' },
     {
         path: 'player-cards',
         loadChildren: './player-cards/player-cards.module#PlayerCardsModule',
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
+        whenAuthenticated: 'show',
+        title: 'Player Cards'
     },
     {
         path: 'login',
-        component: LoginComponent
+        component: LoginComponent,
+        whenAuthenticated: 'hide',
+        title: 'Login'
+    },
+    {
+        path: 'logout',
+        component: LoginComponent,
+        whenAuthenticated: 'show',
+        title: 'Logout',
+        data: {
+            logout: true
+        }
     }
 ];
 

@@ -1,0 +1,18 @@
+<div class="">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <h1>AIS Management</h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="row">
+    <mat-sidenav #snav fixedTopGap="56" class="col-3">
+      <mat-nav-list>
+        <a *ngFor="let r of routeList" mat-list-item routerLink="{{ r.path }}" >{{ r.title || r.path }}</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="col-12">
+      <ng-content></ng-content>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

@@ -8,3 +8,7 @@
 
 // Material Theme
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+main.container {
+    min-height: 1000px;
+}
