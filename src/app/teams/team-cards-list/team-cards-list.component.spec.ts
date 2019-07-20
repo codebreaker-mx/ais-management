@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SideNavComponent } from './side-nav.component';
+import { PlayerCardsListComponent } from './player-cards-list.component';
 
-describe('SideNavComponent', () => {
-    let component: SideNavComponent;
-    let fixture: ComponentFixture<SideNavComponent>;
+describe('PlayerCardsListComponent', () => {
+    let component: PlayerCardsListComponent;
+    let fixture: ComponentFixture<PlayerCardsListComponent>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [SideNavComponent]
+            declarations: [PlayerCardsListComponent]
         }).compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(SideNavComponent);
+        fixture = TestBed.createComponent(PlayerCardsListComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

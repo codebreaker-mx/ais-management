@@ -15,9 +15,8 @@ export class PlayerCardsListComponent {
     items: Observable<IPlayerCard[]>;
     dialogRef: MatDialogRef<PlayerCardComponent>;
 
-    constructor(private playerCardService: PlayerCardsService, 
-                private dialog: MatDialog) {
-        this.items = this.playerCardService.getPlayerCardsWithMeta()
+    constructor(private playerCardService: PlayerCardsService, private dialog: MatDialog) {
+        this.items = this.playerCardService.getPlayerCardsWithMeta();
     }
 
     addPlayer() {

@@ -9,18 +9,16 @@ import { ActivatedRoute, Router } from '@angular/router';
     styles: []
 })
 export class LoginComponent {
-    constructor(public afAuth: AngularFireAuth, 
-                private activatedRoute: ActivatedRoute,
-                private router: Router) {
+    constructor(public afAuth: AngularFireAuth, private activatedRoute: ActivatedRoute, private router: Router) {
         const data = this.activatedRoute.snapshot.data;
-        if(data.logout) {
+        if (data.logout) {
             this.logout();
         }
     }
 
     loginWithGoogle() {
-        this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider()).then(user => {
-            if(user) {
+        this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider()).then((user) => {
+            if (user) {
                 this.router.navigate(['/']);
             }
         });

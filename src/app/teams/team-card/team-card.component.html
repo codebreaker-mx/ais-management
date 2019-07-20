@@ -1,0 +1,15 @@
+<div class="container" [formGroup]="teamCardFG">
+    <div class="row">
+        <mat-form-field class="col-12">
+            <input matInput formControlName="name" placeholder="Name" />
+        </mat-form-field>
+        <mat-form-field class="col-12">
+            <input matInput formControlName="logo" placeholder="Logo Url" />
+        </mat-form-field>
+    </div>
+    <div class="text-right">
+        <button mat-raised-button (click)="saveTeamInfo()" [disabled]="!teamCardFG.valid">
+            Save
+        </button>
+    </div>
+</div>

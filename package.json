@@ -8,6 +8,7 @@
         "test": "ng test",
         "prettier": "prettier ./.prettierrc --write \"src/**/*.{html,scss,json,ts,js}\" --write \"*.{html,scss,json,ts,js}\"",
         "lint": "ng lint",
+        "pre-commit": "npm run prettier && npm run lint",
         "e2e": "ng e2e"
     },
     "private": true,

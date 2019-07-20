@@ -15,14 +15,19 @@ export class PlayerCardsService {
     }
 
     getPlayerCardsWithMeta(): Observable<IPlayerCard[]> {
-        return this.db.collection('player-cards').snapshotChanges().pipe(map(doc => {
-            return doc.map(ele => {
-                return {
-                    id: ele.payload.doc.id,
-                    ... ele.payload.doc.data()
-                }
-            }) as IPlayerCard[];
-        }));
+        return this.db
+            .collection('player-cards')
+            .snapshotChanges()
+            .pipe(
+                map((doc) => {
+                    return doc.map((ele) => {
+                        return {
+                            id: ele.payload.doc.id,
+                            ...ele.payload.doc.data()
+                        };
+                    }) as IPlayerCard[];
+                })
+            );
     }
 
     savePlayerCard(playerCard: IPlayerCard) {
@@ -30,7 +35,7 @@ export class PlayerCardsService {
     }
 
     updatePlayerCard(playerCard: IPlayerCard) {
-        if(playerCard.id){
+        if (playerCard.id) {
             return this.db.doc<IPlayerCard>(`player-cards/${playerCard.id}`).update(playerCard);
         } else {
             throw Error('Player Info with id undefined');

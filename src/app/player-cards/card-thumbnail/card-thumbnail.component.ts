@@ -4,7 +4,6 @@ import { PlayerCardComponent } from '../player-card/player-card.component';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { take } from 'rxjs/operators';
 
-
 @Component({
     selector: 'app-card-thumbnail',
     templateUrl: './card-thumbnail.component.html',
@@ -17,7 +16,7 @@ export class CardThumbnailComponent {
     constructor(private dialog: MatDialog) {}
 
     editPlayer() {
-        if(this.playerInfo) {
+        if (this.playerInfo) {
             this.dialogRef = this.dialog.open(PlayerCardComponent);
             this.dialogRef.componentInstance.playerInfo = this.playerInfo;
             this.dialogRef.componentInstance.newPlayer = false;
@@ -28,5 +27,4 @@ export class CardThumbnailComponent {
             });
         }
     }
-
 }

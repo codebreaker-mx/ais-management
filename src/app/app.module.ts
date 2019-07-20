@@ -10,11 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { BaseComponent } from './base/base.component';
-import { MatToolbarModule, 
-         MatSidenavModule, 
-         MatIconModule, 
-         MatButtonModule, 
-         MatListModule } from '@angular/material';
+import { MatToolbarModule, MatSidenavModule, MatIconModule, MatButtonModule, MatListModule } from '@angular/material';
 
 @NgModule({
     declarations: [AppComponent, LoginComponent, SideNavComponent, BaseComponent],

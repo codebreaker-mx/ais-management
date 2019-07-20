@@ -32,18 +32,20 @@ export class PlayerCardComponent implements OnInit {
 
     savePlayerCard() {
         // Update
-        if(!this.newPlayer && this.playerInfo) {
+        if (!this.newPlayer && this.playerInfo) {
             const playerUpdated = {
                 id: this.playerInfo.id,
                 ...this.playerCardFG.value
             };
-            this.playerCardsService.updatePlayerCard(playerUpdated).then(() => this.save.emit(playerUpdated))
-              .catch(() => console.log('Promise Rejected'));
+            this.playerCardsService
+                .updatePlayerCard(playerUpdated)
+                .then(() => this.save.emit(playerUpdated))
+                .catch(() => console.log('Promise Rejected'));
         } else {
-        this.playerCardsService
-            .savePlayerCard(this.playerCardFG.value)
-            .then((docRef) => this.save.emit(docRef))
-            .catch(() => console.log('Promise Rejected'));
+            this.playerCardsService
+                .savePlayerCard(this.playerCardFG.value)
+                .then((docRef) => this.save.emit(docRef))
+                .catch(() => console.log('Promise Rejected'));
         }
     }
 }

@@ -11,7 +11,14 @@ export const routes: IAppRoute[] = [
         loadChildren: './player-cards/player-cards.module#PlayerCardsModule',
         canActivate: [AuthGuard],
         whenAuthenticated: 'show',
-        title: 'Player Cards'
+        title: 'Jugadores'
+    },
+    {
+        path: 'team-cards',
+        loadChildren: './teams/team-cards.module#TeamCardsModule',
+        canActivate: [AuthGuard],
+        whenAuthenticated: 'show',
+        title: 'Equipos'
     },
     {
         path: 'login',
